@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KPEdu | Topics</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo">KPEdu</a>
+            <ul class="nav-links">
+                <li><a href="topics.html" class="active">Topics</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content-wrapper">
+        <h1 class="page-title">Educational Research</h1>
+        <div class="search-container">
+            <p id="noResults" style="display: none; text-align: center; color: #666; margin-top: 20px;">
+    No articles found matching your search.
+            </p>
+    <input type="text" id="topicSearch" onkeyup="searchTopics()" placeholder="Search for articles (e.g. AI, policy)...">
+</div>
+        
+        <section class="topic-section">
+            <h2 class="category-header">I. Infrastructure</h2>
+            <article class="article-card">
+                <h3>Systemic Shortages in Digital Laboratories</h3>
+                <p>Analyzing the current deficit in provincial IT infrastructure and hardware requirements.</p>
+            </article>
+        </section>
+
+        <section class="topic-section">
+            <h2 class="category-header">II. Human Resources</h2>
+            <article class="article-card">
+                <h3>Bridging the Professional Competency Gap</h3>
+                <p>Strategic analysis of teacher recruitment and the shift toward specialized Al expertise.</p>
+            </article>
+        </section>
+
+        <section class="topic-section">
+            <h2 class="category-header">III. Policy</h2>
+            <article class="article-card">
+                <h3>Artificial Intelligence in Education and Curriculum Reform: A Strategic Framework for KPK</h3>
+                <p>A comprehensive analysis of the provincial mandate to integrate AI from Grade 6-12 by March 2026. This framework addresses the systemic hardware deficits and teacher competency gaps.</p>
+                <a href="ai-strategy.html" class="read-more">View Full Framework</a>
+            
+        </section>
+    </main>
+    <script>
+function searchTopics() {
+    let input = document.getElementById('topicSearch').value.toLowerCase();
+    let cards = document.getElementsByClassName('article-card');
+    let noResults = document.getElementById('noResults');
+    let found = false;
+
+    for (let i = 0; i < cards.length; i++) {
+        let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+        let description = cards[i].getElementsByTagName('p')[0].innerText.toLowerCase();
+        
+        if (title.includes(input) || description.includes(input)) {
+            cards[i].style.display = "";
+            found = true;
+        } else {
+            cards[i].style.display = "none";
+        }
+    }
+
+    // Show or hide the "No results" message
+    noResults.style.display = found ? "none" : "block";
+}
+</script>
+</body>
+</html>
