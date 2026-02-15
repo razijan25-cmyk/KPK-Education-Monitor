@@ -1,148 +1,77 @@
-/* Master Styles for KPK Education Monitor */
+/* --- Minimalist Sticky Header --- */
 
-:root {
-    --primary-blue: #1a4a7a;     /* Deep professional blue */
-    --secondary-gray: #f4f7f6;   /* Light background gray */
-    --text-dark: #333;           /* Dark gray text for readability */
-    --accent-red: #c0392b;       /* Alert color for critical shortages */
-    --border-color: #ddd;        /* Subtle borders */
+header {
+    background-color: #ffffff; /* Pure white background */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #eaeaea; /* Very subtle separation line */
+    padding: 10px 0;
+    transition: all 0.3s ease;
 }
 
-body {
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.6;
-    color: var(--text-dark);
-    background-color: var(--secondary-gray);
-    margin: 0;
-    padding: 0;
-}
-
-/* Main Container */
-.content-wrapper {
+.header-container {
     max-width: 900px;
-    margin: 20px auto;
-    background: #fff;
-    padding: 40px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Soft shadow for depth */
-    border-radius: 8px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;             /* Forces Logo and Nav to same row */
+    justify-content: space-between; /* Pushes Logo left, Nav right */
+    align-items: center;       /* Centers them vertically */
 }
 
-/* Typography & Headers */
-h1 {
-    color: var(--primary-blue);
-    font-size: 2.2rem;
-    line-height: 1.2;
-    border-bottom: 3px solid var(--primary-blue);
-    padding-bottom: 15px;
-    margin-bottom: 20px;
-}
-
-h2 {
-    color: var(--primary-blue);
-    margin-top: 40px;
-    border-left: 5px solid var(--primary-blue);
-    padding-left: 15px;
-    font-size: 1.5rem;
-}
-
-h3 {
-    color: #444;
-    margin-top: 25px;
+/* The KPEdu Logo Box */
+.logo-box {
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 700;          /* Bold text */
     font-size: 1.2rem;
-}
-
-/* Metadata (Date & Category) */
-.metadata {
-    font-style: italic;
-    color: #666;
-    margin-bottom: 30px;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 10px;
-    font-size: 0.9rem;
-}
-
-/* Professional Data Tables */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 0.95rem;
-    background-color: #fff;
-}
-
-th {
-    background-color: var(--primary-blue);
-    color: white;
-    text-align: left;
-    padding: 12px;
-    font-weight: 600;
-}
-
-td {
-    padding: 12px;
-    border-bottom: 1px solid var(--border-color);
-}
-
-tr:nth-child(even) {
-    background-color: #f8f9fa; /* Zebra striping for readability */
-}
-
-tr:hover {
-    background-color: #e9ecef; /* Highlight row on hover */
-}
-
-.total-row {
-    font-weight: bold;
-    background-color: #e2e6ea !important;
-    border-top: 2px solid #aaa;
-}
-
-/* Lists & Bullets */
-ul {
-    margin: 20px 0;
-    padding-left: 20px;
-}
-
-li {
-    margin-bottom: 10px;
-}
-
-/* Footer & Navigation Links */
-footer {
-    text-align: center;
-    margin-top: 40px;
-    padding: 20px;
-    font-size: 0.9rem;
-    color: #777;
-    border-top: 1px solid #eee;
-}
-
-a {
     color: var(--primary-blue);
+    text-decoration: none;     /* Removes underline */
+    
+    /* The Subtle Box Look */
+    background-color: #f3f5f7; /* Very light gray/blue (subtle contrast) */
+    padding: 6px 12px;         /* Space inside the box */
+    border-radius: 3px;        /* Minimum corner roundness */
+    border: 1px solid transparent; /* Keeps sizing consistent */
+    transition: background-color 0.2s;
+}
+
+.logo-box:hover {
+    background-color: #e2e6ea; /* Slightly darker on touch/hover */
+    color: var(--primary-blue);
+}
+
+/* Navigation Links */
+nav {
+    display: flex;
+    gap: 20px;                 /* Clean spacing between links */
+}
+
+.nav-link {
     text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
+    color: #555;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 5px 0;            /* Minimal padding */
+    position: relative;
 }
 
-a:hover {
-    color: var(--accent-red);
-    text-decoration: underline;
+.nav-link:hover {
+    color: var(--primary-blue);
 }
 
-/* Mobile Responsiveness */
+/* Mobile Adjustments */
 @media (max-width: 600px) {
-    .content-wrapper {
-        padding: 20px;
-        margin: 10px;
-        width: auto;
+    .header-container {
+        padding: 0 15px;
     }
     
-    h1 { font-size: 1.6rem; }
-    h2 { font-size: 1.3rem; }
+    .logo-box {
+        font-size: 1.1rem;
+        padding: 5px 10px;
+    }
     
-    table {
-        display: block;
-        overflow-x: auto; /* Scroll horizontally on small screens */
-        white-space: nowrap;
+    nav {
+        gap: 12px;             /* Tighter spacing on phone */
+        font-size: 0.85rem;
     }
 }
