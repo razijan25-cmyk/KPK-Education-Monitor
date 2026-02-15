@@ -1,170 +1,77 @@
-/* Global Styles */
-body {
-    font-family: 'Georgia', serif; /* Professional journal feel */
-    line-height: 1.6;
-    color: #333;
-    margin: 0;
-    background-color: #f9f9f9;
-}
+/* --- Minimalist Sticky Header --- */
 
-/* Header & Navigation */
-/* Optimized Mobile Header */
-/* --- Space-Saving Mobile Header --- */
 header {
-    background-color: #004d40;
-    color: white;
-    padding: 12px 0;
+    background-color: #ffffff; /* Pure white background */
     position: sticky;
     top: 0;
     z-index: 1000;
+    border-bottom: 1px solid #eaeaea; /* Very subtle separation line */
+    padding: 10px 0;
+    transition: all 0.3s ease;
 }
 
-.nav-container {
-    display: flex !important;
-    flex-direction: row !important; /* Forces Logo and Links into one row */
-    justify-content: space-between !important;
-    align-items: center !important;
-    max-width: 1000px;
+.header-container {
+    max-width: 900px;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 20px;
+    display: flex;             /* Forces Logo and Nav to same row */
+    justify-content: space-between; /* Pushes Logo left, Nav right */
+    align-items: center;       /* Centers them vertically */
 }
 
-.logo {
+/* The KPEdu Logo Box */
+.logo-box {
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 700;          /* Bold text */
     font-size: 1.2rem;
-    font-weight: bold;
-    color: white;
-    text-decoration: none;
-    margin-bottom: 0 !important; /* Removes any bottom spacing stacking them */
+    color: var(--primary-blue);
+    text-decoration: none;     /* Removes underline */
+    
+    /* The Subtle Box Look */
+    background-color: #f3f5f7; /* Very light gray/blue (subtle contrast) */
+    padding: 6px 12px;         /* Space inside the box */
+    border-radius: 3px;        /* Minimum corner roundness */
+    border: 1px solid transparent; /* Keeps sizing consistent */
+    transition: background-color 0.2s;
 }
 
-.nav-links {
-    list-style: none;
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center;
-    margin: 0;
-    padding: 0;
+.logo-box:hover {
+    background-color: #e2e6ea; /* Slightly darker on touch/hover */
+    color: var(--primary-blue);
 }
 
-/* Vertical Separator Lines */
-.nav-links li {
+/* Navigation Links */
+nav {
     display: flex;
-    align-items: center;
+    gap: 20px;                 /* Clean spacing between links */
 }
 
-.nav-links li:not(:last-child)::after {
-    content: "|";
-    color: rgba(255, 255, 255, 0.4);
-    margin: 0 6px;
-    font-size: 0.8rem;
-}
-
-.nav-links a {
-    color: white;
+.nav-link {
     text-decoration: none;
-    font-size: 0.8rem;
+    color: #555;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 5px 0;            /* Minimal padding */
+    position: relative;
 }
 
-/* Responsive Overrides */
-@media (max-width: 600px) {
-    .nav-container {
-        padding: 0 10px;
-    }
-    .logo {
-        font-size: 1rem;
-    }
-    .nav-links a {
-        font-size: 0.75rem;
-    }
-}
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: white;
-    text-decoration: none;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 0.9rem;
+.nav-link:hover {
+    color: var(--primary-blue);
 }
 
 /* Mobile Adjustments */
 @media (max-width: 600px) {
-    .nav-container {
-        flex-direction: column;
-        gap: 10px;
+    .header-container {
+        padding: 0 15px;
     }
-    .nav-links {
-        gap: 10px;
+    
+    .logo-box {
+        font-size: 1.1rem;
+        padding: 5px 10px;
     }
-}
-
-/* Content Area */
-.content-wrapper {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
-
-.hero h1 {
-    font-size: 2.2rem;
-    color: #004d40;
-    margin-bottom: 10px;
-}
-/* Subcategory Headers */
-.category-header {
-    color: #004d40;
-    border-bottom: 2px solid #004d40;
-    margin-top: 40px;
-    padding-bottom: 5px;
-    font-size: 1.5rem;
-}
-
-/* Article Cards */
-.article-card {
-    background: white;
-    padding: 20px;
-    margin: 15px 0;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    border-left: 6px solid #004d40; /* Emphasis bar */
-}
-
-.article-card h3 {
-    margin-top: 0;
-    color: #222;
-    font-size: 1.2rem;
-}
-
-.article-card p {
-    color: #555;
-    font-size: 0.95rem;
-    margin-bottom: 0;
-}
-
-.search-container {
-    margin: 20px 0;
-    text-align: center;
-}
-
-#topicSearch {
-    width: 80%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 1rem;
-    outline: none;
-    border-color: #004d40; /* This is the KPEdu dark green */
-    box-shadow: 0 0 5px rgba(0, 77, 64, 0.2);
+    
+    nav {
+        gap: 12px;             /* Tighter spacing on phone */
+        font-size: 0.85rem;
+    }
 }
