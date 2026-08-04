@@ -1,9 +1,9 @@
-/* Main Body: Column-to-Stack Shift & Split-Screen */
+/* Main Body: Single Column Shift */
 .layout-wrapper {
     max-width: 1600px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 400px; /* Split-screen layout */
+    grid-template-columns: 1fr; /* Changed from split-screen to single column */
     gap: 3rem;
     padding: 2rem 1rem;
 }

@@ -160,6 +160,11 @@
     .inline-navbar { display: none; }
     .hamburger-menu { display: flex; }
     .bottom-nav { display: flex; } 
+    
+    /* Hides the breadcrumb row entirely on mobile screens */
+    .breadcrumb-wrapper {
+        display: none;
+    }
 }
 
 /* Off-Canvas Menu Close Button */
