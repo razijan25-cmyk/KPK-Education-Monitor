@@ -161,3 +161,11 @@
     .hamburger-menu { display: flex; }
     .bottom-nav { display: flex; } 
 }
+
+/* Off-Canvas Menu Close Button */
+.off-canvas-menu .close-menu-btn {
+    align-self: flex-end;
+    border: none;
+    font-weight: bold;
+    color: var(--color-dark);
+}
