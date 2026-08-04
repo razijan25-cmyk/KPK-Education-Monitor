@@ -21,8 +21,6 @@ body {
     background-color: var(--color-white);
     color: var(--color-dark);
     -webkit-font-smoothing: antialiased;
-    /* Ensures bezel-less, edge-to-edge flow */
     width: 100%;
-    overflow-x: hidden; 
-    padding-bottom: 70px; /* Space for bottom navigation */
+    padding-bottom: 70px; /* Maintains space so the fixed nav doesn't cover text */
 }

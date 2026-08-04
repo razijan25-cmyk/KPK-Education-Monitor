@@ -27,24 +27,65 @@
     min-height: var(--touch-target);
 }
 
-/* Desktop Inline Navbar */
+/* Desktop Inline Navbar & Controls Wrapper */
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
 .inline-navbar {
     display: flex;
     list-style: none;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
+/* Updated Typography */
 .inline-navbar a {
     text-decoration: none;
-    color: var(--color-dark);
-    font-weight: 500;
+    color: rgba(0, 0, 0, 0.8); /* Subtle dark gray */
+    font-size: 12px; /* Smaller footprint */
+    font-weight: 400; /* Regular weight */
+    letter-spacing: -0.01em;
     display: flex;
     align-items: center;
     min-height: var(--touch-target);
     transition: opacity 0.3s ease; 
 }
 
-.inline-navbar a:hover { opacity: 0.6; }
+.inline-navbar a:hover { 
+    opacity: 0.6; 
+}
+
+/* Pill-Shaped Search Component */
+.search-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-white);
+    border: 1px solid #d1d1d1;
+    border-radius: 20px;
+    padding: 0 0.75rem;
+    height: 34px;
+    transition: border-color 0.3s ease;
+}
+
+.search-wrapper:focus-within {
+    border-color: var(--color-accent);
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    background: transparent;
+    margin-left: 0.5rem;
+    font-size: 14px;
+    color: var(--color-dark);
+    width: 140px;
+}
+
+.search-input::placeholder {
+    color: #888;
+}
 
 /* Mobile Hamburger Toggle */
 .hamburger-menu {
@@ -157,11 +198,10 @@
 
 /* Media Queries for Navigation */
 @media (max-width: 768px) {
-    .inline-navbar { display: none; }
+    .nav-controls { display: none; } /* Hides both links and desktop search */
     .hamburger-menu { display: flex; }
     .bottom-nav { display: flex; } 
     
-    /* Hides the breadcrumb row entirely on mobile screens */
     .breadcrumb-wrapper {
         display: none;
     }
