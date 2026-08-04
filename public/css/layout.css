@@ -1,0 +1,79 @@
+/* Main Body: Column-to-Stack Shift & Split-Screen */
+.layout-wrapper {
+    max-width: 1600px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 400px; /* Split-screen layout */
+    gap: 3rem;
+    padding: 2rem 1rem;
+}
+
+/* Bezel-less Reading Area */
+.reading-area {
+    max-width: 800px; /* Maintains optimal line length */
+    margin: 0 auto;
+}
+
+/* Sticky Data Visualization */
+.sticky-diagram {
+    position: sticky;
+    top: 100px; /* Offset for header */
+    height: fit-content;
+    background: var(--color-light-gray);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    animation: fadeIn 0.6s ease-in-out; /* Smooth fade-in */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Accessible Data Tables (Horizontal Overflow) */
+.table-container {
+    width: 100%;
+    overflow-x: auto; /* Protects mobile viewport */
+    margin-bottom: 2rem;
+    border: 1px solid var(--color-border);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px; /* Forces scroll on small screens */
+}
+
+th, td {
+    text-align: left;
+    padding: 1rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+th { 
+    background-color: var(--color-light-gray); 
+    font-weight: 600; 
+}
+
+/* Container Queries & Media Queries (Column-to-Stack) */
+@media (max-width: 1024px) {
+    .layout-wrapper {
+        grid-template-columns: 1fr; /* Column-to-Stack shift */
+        padding: 1rem; /* Edge-to-edge adjustment */
+    }
+    .sticky-diagram {
+        position: relative;
+        top: 0;
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .layout-wrapper {
+        padding: 1rem 0; /* Strict bezel-less flow on mobile */
+    }
+    .reading-area {
+        padding: 0 1rem; /* Internal padding only */
+    }
+}

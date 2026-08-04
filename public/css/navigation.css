@@ -1,0 +1,163 @@
+/* Unified Global Header: Adaptive Navigation Swap */
+.global-header {
+    width: 100%;
+    background-color: var(--color-white);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.brand-title {
+    font-size: clamp(1.25rem, 1vw + 1rem, 1.5rem);
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--color-dark);
+    display: flex;
+    align-items: center;
+    min-height: var(--touch-target);
+}
+
+/* Desktop Inline Navbar */
+.inline-navbar {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.inline-navbar a {
+    text-decoration: none;
+    color: var(--color-dark);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    min-height: var(--touch-target);
+    transition: opacity 0.3s ease; 
+}
+
+.inline-navbar a:hover { opacity: 0.6; }
+
+/* Mobile Hamburger Toggle */
+.hamburger-menu {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    min-height: var(--touch-target);
+    min-width: var(--touch-target);
+    align-items: center;
+    justify-content: center;
+}
+
+.hamburger-icon, .hamburger-icon::before, .hamburger-icon::after {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-dark);
+    position: relative;
+}
+.hamburger-icon::before, .hamburger-icon::after { content: ''; position: absolute; left: 0; }
+.hamburger-icon::before { top: -6px; }
+.hamburger-icon::after { bottom: -6px; }
+
+/* Wayfinding: Breadcrumb Navigation */
+.breadcrumb-wrapper {
+    background-color: var(--color-light-gray);
+    border-bottom: 1px solid var(--color-border);
+    width: 100%;
+}
+
+.breadcrumb-trail {
+    display: flex;
+    list-style: none;
+    padding: 0 1rem;
+    max-width: 1600px;
+    margin: 0 auto;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.breadcrumb-trail li { display: flex; align-items: center; }
+.breadcrumb-trail a, .breadcrumb-trail span {
+    display: flex;
+    align-items: center;
+    min-height: var(--touch-target);
+    font-size: 0.875rem;
+    color: #555;
+    text-decoration: none;
+}
+.breadcrumb-trail a:hover { color: var(--color-dark); text-decoration: underline; }
+.breadcrumb-trail li::after { content: '›'; margin: 0 0.5rem; color: #999; }
+.breadcrumb-trail li:last-child::after { content: ''; }
+.breadcrumb-trail li:last-child span { font-weight: 600; color: var(--color-dark); }
+
+/* Solid, Minimal Bottom Navigation */
+.bottom-nav {
+    display: none; 
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--color-white);
+    border-top: 1px solid var(--color-border);
+    z-index: 1000;
+    justify-content: space-around;
+    padding: 0.5rem 0;
+}
+
+.bottom-nav a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--color-dark);
+    min-height: var(--touch-target);
+    min-width: var(--touch-target);
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* Off-Canvas Menu Target logic */
+.off-canvas-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 85%;
+    max-width: 350px;
+    height: 100vh;
+    background-color: var(--color-white);
+    box-shadow: -4px 0 15px rgba(0,0,0,0.1);
+    transition: right 0.3s ease;
+    z-index: 2000;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.off-canvas-menu:target { right: 0; }
+.off-canvas-menu a {
+    display: flex;
+    align-items: center;
+    min-height: var(--touch-target);
+    font-size: 1.125rem;
+    color: var(--color-dark);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-border);
+    padding: 0 1rem;
+}
+
+/* Media Queries for Navigation */
+@media (max-width: 768px) {
+    .inline-navbar { display: none; }
+    .hamburger-menu { display: flex; }
+    .bottom-nav { display: flex; } 
+}
